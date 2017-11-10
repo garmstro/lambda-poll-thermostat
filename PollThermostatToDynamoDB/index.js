@@ -51,7 +51,7 @@ function processEvent(event, context, callback) {
                 callback(error);
                 return;
               }
-              if (!thermostatData.deviceId && thermostatData.deviceStatus) {
+              if (!thermostatData.deviceId || !thermostatData.deviceStatus) {
                 callback(new Error('Received no data from device!'));
                 return;
               }
