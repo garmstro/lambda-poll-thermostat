@@ -1,0 +1,103 @@
+{ "Records": [
+  {
+      "eventID": "123abc",
+      "eventName": "INSERT",
+      "eventVersion": "1.1",
+      "eventSource": "aws:dynamodb",
+      "awsRegion": "us-east-1",
+      "dynamodb": {
+          "ApproximateCreationDateTime": 1510680180,
+          "Keys": {
+              "Id": {
+                  "S": "12-ab-34-cd"
+              }
+          },
+          "NewImage": {
+              "Temperature": {
+                  "M": {
+                      "C": {
+                          "N": "21"
+                      },
+                      "F": {
+                          "N": "70"
+                      }
+                  }
+              },
+              "OperatingMode": {
+                  "S": "Heat"
+              },
+              "ScheduleTemps": {
+                  "M": {
+                      "Heat": {
+                          "M": {
+                              "C": {
+                                  "N": "18"
+                              },
+                              "F": {
+                                  "N": "64"
+                              }
+                          }
+                      },
+                      "AutoHeat": {
+                          "M": {
+                              "C": {
+                                  "N": "17"
+                              },
+                              "F": {
+                                  "N": "62"
+                              }
+                          }
+                      },
+                      "Cool": {
+                          "M": {
+                              "C": {
+                                  "N": "27"
+                              },
+                              "F": {
+                                  "N": "80"
+                              }
+                          }
+                      },
+                      "AutoCool": {
+                          "M": {
+                              "C": {
+                                  "N": "28"
+                              },
+                              "F": {
+                                  "N": "83"
+                              }
+                          }
+                      }
+                  }
+              },
+              "Humidity": {
+                  "N": "26"
+              },
+              "LowPower": {
+                  "BOOL": false
+              },
+              "PowerStatus": {
+                  "N": "1"
+              },
+              "Running": {
+                  "M": {
+                      "Mode": {
+                          "S": "Off"
+                      }
+                  }
+              },
+              "Id": {
+                  "S": "12-ab-34-cd"
+              },
+              "BatteryVoltage": {
+                  "N": "65535"
+              }
+          },
+          "SequenceNumber": "2900900000000014795965199",
+          "SizeBytes": 245,
+          "StreamViewType": "NEW_IMAGE"
+      },
+      "eventSourceARN": "arn:aws:dynamodb:region:account_id:table/TableName/stream/2017-11-14T15:29:32.525"
+  }
+]}
+

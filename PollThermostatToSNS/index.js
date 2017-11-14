@@ -1,12 +1,13 @@
 'use strict';
 const request = require('request');
 const AWS = require('aws-sdk');
-const uuidv1 = require('uuid/v1');
+const sns = new AWS.SNS();
 
 const USER_NAME = process.env.USER_NAME;
 const encrypted = process.env.PASSWORD;
 let decrypted;
 const DEVICE_ID = process.env.DEVICE_ID;
+const TOPIC_ARN = process.env.TOPIC_ARN;
 
 const BASE_URL = 'https://bus-serv.sensicomfort.com';
 
@@ -67,7 +68,20 @@ function sendResponse(error, data, callback) {
   if (!data) {
     return callback(new Error('Received no data from device!'));
   }
-  return callback(null, data);
+  return publishMessage(JSON.stringify(data), callback);
+}
+
+function publishMessage(message, callback) {
+  const params = {
+    Message: message,
+    TopicArn: TOPIC_ARN
+  }
+  sns.publish(params, (error, data) => {
+    if (error) {
+      return callback(error);
+    }
+    callback(null, data);
+  });
 }
 
 function authorize(user, connection, callback) {
